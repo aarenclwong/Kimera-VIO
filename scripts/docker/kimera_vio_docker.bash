@@ -1,11 +1,10 @@
 #!/bin/bash
 
 # Allow X server connection
-xhost +local:root
+#xhost +local:root
 docker run -it --rm \
-    --env="DISPLAY" \
-    --env="QT_X11_NO_MITSHM=1" \
-    --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
-    kimera_vio
+    --env="DISPLAY=172.23.144.1:0.0" \
+    kimera_vio \
+    "$@"
 # Disallow X server connection
-xhost -local:root
+#xhost -local:root

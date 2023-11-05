@@ -122,7 +122,7 @@ RUN ssh-keyscan -t rsa github.com >> /root/.ssh/known_hosts
 RUN apt-get update && apt-get install -y libgflags2.2 libgflags-dev libgoogle-glog0v5 libgoogle-glog-dev
 
 # Install Kimera-VIO
-RUN git clone https://github.com/MIT-SPARK/Kimera-VIO.git
+RUN git clone https://github.com/aarenclwong/Kimera-VIO.git
 RUN cd Kimera-VIO && git checkout master && mkdir build && cd build && cmake .. && make -j$(nproc)
 
 # Download and extract EuRoC dataset.
@@ -134,4 +134,8 @@ RUN mkdir -p $DIRPATH/euroc && unzip V1_01_easy.zip -d $DIRPATH/euroc
 RUN bash $DIRPATH/Kimera-VIO/scripts/euroc/yamelize.bash -p $DIRPATH/euroc
 
 #CMD xvfb-run $DIRPATH/Kimera-VIO/scripts/stereoVIOEuroc.bash -p $DIRPATH/euroc -r
-CMD $DIRPATH/Kimera-VIO/scripts/stereoVIOEuroc.bash -p $DIRPATH/euroc -r
+# CMD $DIRPATH/Kimera-VIO/scripts/stereoVIOEuroc.bash -p $DIRPATH/euroc -r
+RUN mkdir vio_data
+RUN mkdir vio_data/mav0
+ADD but0 ./vio_data/mav0
+# RUN bash $DIRPATH/Kimera-VIO/scripts/stereoVIOEuroc.bash -p $DIRPATH/vio_data      
