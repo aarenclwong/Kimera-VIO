@@ -184,7 +184,7 @@ ThreadsafeImuBuffer::getImuDataInterpolatedBorders(
   ImuStampS imu_timestamps_tmp;
   ImuAccGyrS imu_measurements_tmp;
   QueryResult query_result =
-      getImuDataBtwTimestamps(timestamp_ns_from, timestamp_ns_to,
+      getImuDataBtwTimestamps(timestamp_ns_from, timestamp_ns_to+.1,
                               &imu_timestamps_tmp, &imu_measurements_tmp);
 
   // Early exit if there is no data.

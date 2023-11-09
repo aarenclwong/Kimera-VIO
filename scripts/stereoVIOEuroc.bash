@@ -24,7 +24,7 @@ LOG_OUTPUT=0
 BUILD_PATH="../build"
 
 # Params path: specify where the parameters for Kimera are.
-#PARAMS_PATH="../params/Euroc"
+# PARAMS_PATH="../params/Euroc"
 PARAMS_PATH="../params/EurocMono"  # use this for monocular-mode (left cam only)
 
 # Vocabulary path: specify where the vocabulary for loop closure is.

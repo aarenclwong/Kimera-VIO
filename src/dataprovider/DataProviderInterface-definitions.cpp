@@ -90,7 +90,8 @@ bool CameraImageLists::parseCamImgList(const std::string& folderpath,
     auto idx = item.find_first_of(',');
     Timestamp timestamp = std::stoll(item.substr(0, idx));
     std::string image_filename =
-        folderpath + "/data/" + item.substr(idx+1, item.size() -1);
+        // folderpath + "/data/" + item.substr(idx+1, item.size() -1);
+        folderpath + "/data/" + item.substr(0, idx) + ".png";
     // Strangely, on mac, it does not work if we use: item.substr(idx + 1);
     // maybe different string termination characters???
     img_lists_.push_back(make_pair(timestamp, image_filename));

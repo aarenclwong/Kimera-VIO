@@ -195,7 +195,7 @@ KeypointsCV FeatureDetector::featureDetection(const Frame& cur_frame,
   // Actual raw feature detection
   std::vector<cv::KeyPoint> keypoints =
       rawFeatureDetection(cur_frame.img_, mask);
-  LOG(INFO) << cur_frame.img_;
+  // LOG(INFO) << cur_frame.img_;
   VLOG(1) << "Number of points detected : " << keypoints.size();
 
   // cv::Mat fastDetectionResults;  // draw FAST detections
