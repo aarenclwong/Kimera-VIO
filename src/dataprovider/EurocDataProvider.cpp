@@ -844,6 +844,7 @@ bool MonoEurocDataProvider::spinOnce() {
   if (available_left_img) {
     // Both stereo images are available, send data to VIO
     CHECK(left_frame_callback_);
+    // LOG(INFO) << left_img_filename;
     // LOG(INFO) << UtilsOpenCV::ReadAndConvertToGrayScale(
     //                                 left_img_filename, equalize_image);
     left_frame_callback_(
