@@ -100,8 +100,9 @@ class SimpleQueueSynchronizer : public QueueSynchronizerBase<T> {
                  ThreadsafeQueue<T>* queue,
                  T* pipeline_payload,
                  std::string name_id,
-                 int max_iterations = 10,
+                 int max_iterations = 1000,
                  std::function<void(const T&)>* callback = nullptr) {
+    max_iterations = 1000;
     CHECK_NOTNULL(queue);
     CHECK_NOTNULL(pipeline_payload);
     static_assert(
@@ -113,8 +114,11 @@ class SimpleQueueSynchronizer : public QueueSynchronizerBase<T> {
     // Loop over payload timestamps until we reach the query timestamp
     // or we are past the asked timestamp (in which case, we failed).
     int i = 0;
-    static constexpr size_t timeout_ms = 1000000u;  // Wait 1500ms at most!
+    static constexpr size_t timeout_ms = 1000u;  // Wait 1500ms at most!
     for (; i < max_iterations && timestamp > payload_timestamp; ++i) {
+      // LOG(INFO) << i << "-" << max_iterations;
+      // LOG(INFO) << timestamp << "-" << payload_timestamp;
+
       // TODO(Toni): add a timer to avoid waiting forever...
       if (!queue->popBlockingWithTimeout(*pipeline_payload, timeout_ms)) {
         LOG(ERROR) << "Queu sync failed for module: " << name_id

@@ -47,7 +47,7 @@ MesherModule::InputUniquePtr MesherModule::getInputPacket() {
   // This should always work, because it should not be possible to have
   // a Backend payload without having a Frontend one first!
   MesherFrontendInput frontend_payload = nullptr;
-  PIO::syncQueue(timestamp, &frontend_payload_queue_, &frontend_payload);
+  PIO::syncQueue(timestamp, &frontend_payload_queue_, &frontend_payload, 100);
   CHECK(frontend_payload);
   CHECK(frontend_payload->is_keyframe_);
 
