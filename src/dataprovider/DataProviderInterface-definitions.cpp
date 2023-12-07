@@ -91,7 +91,7 @@ bool CameraImageLists::parseCamImgList(const std::string& folderpath,
     Timestamp timestamp = std::stoll(item.substr(0, idx));
     
     std::string image_filename =
-        folderpath + "/data/" + item.substr(idx+2, 13) + "jpg";
+        folderpath + "/data/" + item.substr(idx+2, item.size()-idx-6) + "jpg";
 
 
         // folderpath + "/data/" + item.substr(0, idx) + ".png";

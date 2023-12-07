@@ -13,7 +13,7 @@ DATASET_TYPE=0
 USE_LCD=0
 
 # Specify: 1 to enable logging of output files, 0 to not.
-LOG_OUTPUT=0
+LOG_OUTPUT=1
 ###################################################################
 
 ###################################################################
@@ -101,7 +101,7 @@ $BUILD_PATH/stereoVIOEuroc \
   --logtostderr=1 \
   --colorlogtostderr=1 \
   --log_prefix=1 \
-  --v=0 \
+  --v=-1 \
   --vmodule=Pipeline*=00 \
   --log_output="$LOG_OUTPUT" \
   --log_euroc_gt_data="$LOG_OUTPUT" \

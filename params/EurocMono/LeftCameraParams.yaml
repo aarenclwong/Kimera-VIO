@@ -12,11 +12,13 @@ T_BS:
          0.0, 0.0, 0.0, 1.0]
 
 # Camera specific definitions.
-rate_hz: 60
-resolution: [640, 480]
+rate_hz: 1
+# resolution: [640, 480]
+resolution: [1456, 1088]
 camera_model: pinhole
 # intrinsics: [458.654, 457.296, 367.215, 248.375] #fu, fv, cu, cv
-intrinsics: [237.529, 237.244, 330.529, 251.88]
+# intrinsics: [237.529, 237.244, 330.529, 251.88]
+intrinsics: [475.058, 474.488, 661.058, 503.76]
 distortion_model: radial-tangential
 # distortion_coefficients: [-0.28340811, 0.07395907, 0.00019359, 1.76187114e-05]
 distortion_coefficients: [-0.00234746, -0.00575422, 0.00240406, -0.00144845]
