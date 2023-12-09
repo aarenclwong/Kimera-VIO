@@ -12,7 +12,7 @@ T_BS:
          0.0, 0.0, 0.0, 1.0]
 
 # Camera specific definitions.
-rate_hz: 1
+rate_hz: 60
 # resolution: [640, 480]
 resolution: [1456, 1088]
 camera_model: pinhole

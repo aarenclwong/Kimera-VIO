@@ -55,7 +55,7 @@ bool DataProviderModule::getTimeSyncedImuMeasurements(
   bool log_error_once = true;
   while (
       !MISO::shutdown_ &&
-      (query_result = imu_data_.imu_buffer_.getImuDataInterpolatedUpperBorder(
+      (query_result = imu_data_.imu_buffer_.getImuDataInterpolatedBorders(
            timestamp_last_frame_,
            timestamp,
            &imu_meas->timestamps_,
